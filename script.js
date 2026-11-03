@@ -1,36 +1,35 @@
+
 // Chai Stall Bill Counter
 
 const totalAmountElement = document.getElementById("total-amount");
-const chaiButtons = document.querySelectorAll(".chai-button");
+const itemButtons = document.querySelectorAll(".item-button");
 const resetButton = document.getElementById("reset-button");
-const counterCard = document.querySelector(".counter-card");
+const counterCard = document.getElementById("counter-card");
 const goalMessage = document.getElementById("goal-message");
-const progressBar = document.getElementById("progress-bar");
 
-const DAILY_GOAL = 500;
+// Daily sales target
+const DAILY_GOAL = 200;
 
+// Initial bill amount
 let totalAmount = 0;
 
-// Update the displayed total and goal status
+// Update the bill and goal status
 function updateBill() {
     totalAmountElement.textContent = totalAmount;
 
-    // Calculate progress towards the daily goal
-    const progress = Math.min((totalAmount / DAILY_GOAL) * 100, 100);
-    progressBar.style.width = `${progress}%`;
-
-    // Add or remove the goal class
     if (totalAmount >= DAILY_GOAL) {
         counterCard.classList.add("goal");
-        goalMessage.textContent = "🎉 Congratulations! Daily goal reached!";
+        goalMessage.textContent = "Congratulations! Your ₹200 daily goal has been reached!";
     } else {
         counterCard.classList.remove("goal");
-        goalMessage.textContent = `Keep selling! ₹${DAILY_GOAL - totalAmount} more to reach your goal.`;
+
+        const remainingAmount = DAILY_GOAL - totalAmount;
+        goalMessage.textContent = `₹${remainingAmount} more to reach your daily goal of ₹200.`;
     }
 }
 
-// Add the selected chai price to the total
-chaiButtons.forEach(function(button) {
+// Add the selected item's price
+itemButtons.forEach(function(button) {
     button.addEventListener("click", function() {
         const amount = Number(button.dataset.amount);
 
@@ -43,11 +42,13 @@ chaiButtons.forEach(function(button) {
     });
 });
 
-// Reset the total and remove the goal styling
+// Reset the bill
 resetButton.addEventListener("click", function() {
     totalAmount = 0;
+
+    // Update the amount and remove goal styling
     updateBill();
 });
 
-// Display the initial bill
+// Show initial amount
 updateBill();
