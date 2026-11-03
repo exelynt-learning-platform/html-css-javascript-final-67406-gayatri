@@ -1,71 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple Chai Stall Bill Counter to track daily sales.">
+    <meta name="description" content="Chai Stall Bill Counter - Calculate daily sales easily.">
     <title>Chai Stall Bill Counter</title>
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <main class="bill-counter">
-        <header class="page-header">
-            <div class="chai-icon">☕</div>
-            <h1>Chai Stall Bill Counter</h1>
-            <p>Track your daily chai sales easily!</p>
+    <main class="container">
+        <header class="header">
+            <h1>☕ Chai Stall Bill Counter</h1>
+            <p>Manage your daily chai stall sales easily!</p>
         </header>
 
-        <section class="counter-card" aria-label="Daily sales counter">
-            <h2>Today's Total Collection</h2>
+        <section class="counter-card" id="counter-card">
 
-            <div class="amount-display">
-                <span class="currency">₹</span>
+            <h2>Today's Bill</h2>
+
+            <div class="bill-display">
+                <span>₹</span>
                 <span id="total-amount" aria-live="polite">0</span>
             </div>
 
-            <p class="goal-message" id="goal-message">
-                Keep selling! Your goal is ₹500.
-            </p>
+            <p id="goal-message">Your daily sales goal is ₹200.</p>
 
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
-
-            <p class="goal-text">Daily Goal: ₹500</p>
-
-            <h2 class="menu-heading">Add Chai Orders</h2>
+            <h2 class="menu-title">Select an Item</h2>
 
             <div class="button-container">
-                <button class="chai-button" data-amount="10">
-                    <span>☕</span>
-                    <span>Cutting Chai</span>
-                    <strong>₹10</strong>
+                <button type="button" class="item-button" data-amount="15">
+                    Chai - ₹15
                 </button>
 
-                <button class="chai-button" data-amount="15">
-                    <span>🍵</span>
-                    <span>Special Chai</span>
-                    <strong>₹15</strong>
+                <button type="button" class="item-button" data-amount="20">
+                    Samosa - ₹20
                 </button>
 
-                <button class="chai-button" data-amount="20">
-                    <span>🥛</span>
-                    <span>Masala Chai</span>
-                    <strong>₹20</strong>
-                </button>
-
-                <button class="chai-button" data-amount="25">
-                    <span>🫖</span>
-                    <span>Ginger Chai</span>
-                    <strong>₹25</strong>
+                <button type="button" class="item-button" data-amount="25">
+                    Vada Pav - ₹25
                 </button>
             </div>
 
-            <button id="reset-button" class="reset-button" type="button">
-                ↻ Reset Bill
+            <button type="button" id="reset-button">
+                Reset Bill
             </button>
+
+            <section class="instructions">
+                <h2>How to Use</h2>
+                <ul>
+                    <li>Click Chai to add ₹15 to the bill.</li>
+                    <li>Click Samosa to add ₹20 to the bill.</li>
+                    <li>Click Vada Pav to add ₹25 to the bill.</li>
+                    <li>Reach ₹200 to complete your daily goal.</li>
+                    <li>Click Reset Bill to start again from ₹0.</li>
+                </ul>
+            </section>
+
         </section>
 
         <footer>
