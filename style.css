@@ -1,0 +1,231 @@
+:root {
+    --primary: #9b552b;
+    --primary-dark: #713b1d;
+    --background: #fff8ed;
+    --card-background: #ffffff;
+    --text: #332319;
+    --muted: #806b5c;
+    --border: #ead8c4;
+    --success: #27834a;
+    --success-background: #e8f7ed;
+    --goal-background: #f3e7d8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #fff4df, #f4dfc4);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 16px;
+}
+
+.bill-counter {
+    width: 100%;
+    max-width: 600px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.chai-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.counter-card {
+    background: var(--card-background);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(80, 45, 20, 0.10);
+    text-align: center;
+}
+
+.counter-card h2 {
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.amount-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--primary);
+    font-size: 54px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.currency {
+    font-size: 35px;
+}
+
+.goal-message {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.progress-container {
+    height: 12px;
+    background: var(--goal-background);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--primary);
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.goal-text {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.menu-heading {
+    margin-bottom: 18px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.chai-button {
+    flex: 1 1 200px;
+    min-height: 105px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fffaf3;
+    color: var(--text);
+    padding: 15px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.chai-button span:first-child {
+    font-size: 24px;
+}
+
+.chai-button span:nth-child(2) {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.chai-button strong {
+    color: var(--primary);
+    font-size: 16px;
+}
+
+.chai-button:hover {
+    background: #f8e8d5;
+    transform: translateY(-3px);
+}
+
+.chai-button:focus-visible,
+.reset-button:focus-visible {
+    outline: 3px solid #d99a50;
+    outline-offset: 3px;
+}
+
+.reset-button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 13px;
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.reset-button:hover {
+    background: var(--primary-dark);
+}
+
+/* Added when the daily goal is reached */
+.goal {
+    background: var(--success-background);
+    border: 2px solid var(--success);
+}
+
+.goal .amount-display {
+    color: var(--success);
+}
+
+.goal .goal-message {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.goal .progress-bar {
+    background: var(--success);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* Responsive layout */
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .counter-card {
+        padding: 20px 15px;
+    }
+
+    .amount-display {
+        font-size: 44px;
+    }
+
+    .chai-button {
+        flex: 1 1 130px;
+    }
+}
